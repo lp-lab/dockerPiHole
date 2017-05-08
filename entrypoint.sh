@@ -43,8 +43,6 @@ if [[ -n $ADMIN_PASS ]]; then
 fi
 
 setup_dnsmasq_dns "$DNS1" "$DNS2"
-echo -n 'Updating Pi-Hole gravity list'
-/opt/pihole/gravity.sh
 
 echo -n 'Starting lighttpd: '
 /usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf
@@ -55,4 +53,5 @@ echo ''
 echo -n 'Starting PiHole-FTL: '
 start_ftl
 echo 'Ok'
-
+echo -n 'Updating Pi-Hole gravity list'
+/opt/pihole/gravity.sh
