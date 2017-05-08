@@ -24,10 +24,25 @@ set_admin_passwd() {
   pihole -a -p $ADMIN_PASS
 }
 
+setup_dnsmasq_dns() {
+    . /opt/pihole/webpage.sh
+    local DNS1="${1:-8.8.8.8}"
+    local DNS2="${2:-8.8.4.4}"
+    local dnsType='default'
+    if [ "$DNS1" != '8.8.8.8' ] || [ "$DNS2" != '8.8.4.4' ] ; then
+      dnsType='custom'
+    fi;
+
+    echo "Using $dnsType DNS servers: $DNS1 & $DNS2"
+        [ -n "$DNS1" ] && change_setting "PIHOLE_DNS_1" "${DNS1}"
+        [ -n "$DNS2" ] && change_setting "PIHOLE_DNS_2" "${DNS2}"
+}
+
 if [[ -n $ADMIN_PASS ]]; then
   set_admin_passwd
 fi
 
+setup_dnsmasq_dns
 echo -n 'Updating Pi-Hole gravity list'
 /opt/pihole/gravity.sh
 
