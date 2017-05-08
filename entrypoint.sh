@@ -42,7 +42,7 @@ if [[ -n $ADMIN_PASS ]]; then
   set_admin_passwd
 fi
 
-setup_dnsmasq_dns
+setup_dnsmasq_dns "$DNS1" "$DNS2"
 echo -n 'Updating Pi-Hole gravity list'
 /opt/pihole/gravity.sh
 
