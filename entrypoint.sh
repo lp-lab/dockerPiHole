@@ -36,6 +36,7 @@ setup_dnsmasq_dns() {
     echo "Using $dnsType DNS servers: $DNS1 & $DNS2"
         [ -n "$DNS1" ] && change_setting "PIHOLE_DNS_1" "${DNS1}"
         [ -n "$DNS2" ] && change_setting "PIHOLE_DNS_2" "${DNS2}"
+    ProcessDNSSettings
 }
 
 if [[ -n $ADMIN_PASS ]]; then
