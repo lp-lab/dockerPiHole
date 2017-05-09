@@ -18,7 +18,7 @@ RUN chmod +x /install.sh && /install.sh
 ADD entrypoint.sh /sbin/entrypoint.sh
 RUN chmod +x /sbin/entrypoint.sh
 
-#VOLUME ["${DATADIR}", "${RUNDIR}", "${LOGDIR}"]
+VOLUME ["/etc/pihole", "/var/log"]
 
 EXPOSE 53 53/udp
 EXPOSE 80

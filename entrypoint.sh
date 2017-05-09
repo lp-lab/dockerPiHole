@@ -5,7 +5,7 @@ start_ftl() {
   touch /var/log/pihole-FTL.log /run/pihole-FTL.pid /run/pihole-FTL.port
   chown pihole:pihole /var/log/pihole-FTL.log /run/pihole-FTL.pid /run/pihole-FTL.port
   chmod 0644 /var/log/pihole-FTL.log /run/pihole-FTL.pid /run/pihole-FTL.port
-  exec su -s /bin/sh -c "/usr/bin/pihole-FTL debug" "$FTLUSER"
+  /usr/bin/pihole-FTL
 }
 
 set_root_passwd() {
@@ -54,4 +54,7 @@ echo -n 'Starting PiHole-FTL: '
 start_ftl
 echo 'Ok'
 echo -n 'Updating Pi-Hole gravity list'
+echo Gravity
 /opt/pihole/gravity.sh
+echo tail
+exec tail -F /var/log/pihole*.log
