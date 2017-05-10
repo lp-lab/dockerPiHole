@@ -1,8 +1,9 @@
 #!/bin/bash
 
 export USER=pihole
+export CORE_TAG=v3.0.1
 
-wget https://raw.githubusercontent.com/pi-hole/pi-hole/v3.0.1/automated%20install/basic-install.sh
+wget https://raw.githubusercontent.com/pi-hole/pi-hole/${CORE_TAG}/automated%20install/basic-install.sh
 
 mkdir /etc/pihole
 
