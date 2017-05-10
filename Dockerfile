@@ -1,11 +1,11 @@
 FROM debian:sid-slim
 
 LABEL maintainer="Luca 'meti' P <github@lplab.net>" \
-      version="0.0.1b"
+      version="1.0.0-rc1"
 
 RUN apt-get update && \
     apt-get -y dist-upgrade && \
-    apt-get -y install wget procps manpages net-tools && \
+    apt-get -y install wget procps manpages net-tools logrotate && \
     apt-get clean
 
 ENV TINI_VERSION v0.14.0

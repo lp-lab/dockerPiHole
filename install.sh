@@ -29,3 +29,5 @@ EOF
 apt-get clean
 
 echo -e '\nuser=root' >> /etc/dnsmasq.conf
+
+rm -f /install.sh
