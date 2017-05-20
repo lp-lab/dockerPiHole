@@ -2,6 +2,9 @@
 
 A Docker container built on Debian to run pi-hole ad filter
 
+GitHub repository: [https://github.com/lp-lab/dockerPiHole](https://github.com/lp-lab/dockerPiHole)
+
+To report issues: [https://github.com/lp-lab/dockerPiHole/issues](https://github.com/lp-lab/dockerPiHole/issues)
 ## Running Docker Pi-Hole
 
 The bare minimum to run this container is:
