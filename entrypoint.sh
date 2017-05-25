@@ -45,8 +45,6 @@ fi
 
 setup_dnsmasq_dns "$DNS1" "$DNS2"
 
-echo -n 'Starting lighttpd: '
-/usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf
 echo 'Ok'
 echo -n '(Re)Starting dnsmasq: '
 service dnsmasq restart
@@ -57,5 +55,7 @@ echo 'Ok'
 echo -n 'Updating Pi-Hole gravity list'
 echo Gravity
 /opt/pihole/gravity.sh
-echo tail
-exec tail -F /var/log/pihole*.log
+#echo tail
+#exec tail -F /var/log/pihole*.log
+echo -n 'Starting lighttpd: '
+/usr/sbin/lighttpd -D -f /etc/lighttpd/lighttpd.conf
