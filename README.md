@@ -6,6 +6,22 @@ GitHub repository: [https://github.com/lp-lab/dockerPiHole](https://github.com/l
 
 Issues reports: [https://github.com/lp-lab/dockerPiHole/issues](https://github.com/lp-lab/dockerPiHole/issues)
 
+## Environment variables
+
+This container accepts a number of variables passed by Docker command line via
+`-e` switch
+
+Variable       | Default value       | Description
+    --         |        ---          |     --
+**ServerIP**   | **NONE - REQUIRED** | The IP address of the pi-hole container
+**ADMIN_PASS** | **NONE - REQUIRED** | The admin password for the pi-hole web interface
+DNS1           | 8.8.8.8 - Google    | Primary DNS
+DNS2           | 8.8.4.4 - Google    | Secondary DNS
+
+> docker run -p 53:53 -p 53:53/udp -p 80:80 -d
+--name pihole -e ADMIN_PASS="reallysecurepassword" -e DNS1="10.0.0.1"
+-e DNS2="10.0.0.2" -e ServerIP="10.0.0.3" lplab/pihole:latest
+
 ## Running Docker Pi-Hole
 
 The bare minimum to run this container is:
@@ -14,22 +30,6 @@ The bare minimum to run this container is:
 --name pihole -e ADMIN_PASS="reallysecurepassword" -e ServerIP="IP.ADDRESS.OF.CONTAINER" lplab/pihole:latest
 
 it will start the container and automatically update the blocked domain list.
-
-## Environment variables
-
-This container accepts a number of variables passed by Docker command line via
-`-e` switch
-
-Variable    | Default value    | Description
-    --      |        ---       |     --
-ServerIP    | NONE - REQUIRED  | The IP address of the pi-hole container
-ADMIN_PASS  | NONE - REQUIRED  | The admin password for the pi-hole web interface
-DNS1        | 8.8.8.8 - Google | Primary DNS
-DNS2        | 8.8.4.4 - Google | Secondary DNS
-
-> docker run -p 53:53 -p 53:53/udp -p 80:80 -d
---name pihole -e ADMIN_PASS="reallysecurepassword" -e DNS1="10.0.0.1"
--e DNS2="10.0.0.2" -e ServerIP="10.0.0.3" lplab/pihole:latest
 
 ## Volume mounts
 
