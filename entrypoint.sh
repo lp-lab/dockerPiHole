@@ -1,11 +1,18 @@
 #!/bin/bash
 set -e
 
+#readonly setupVars="/etc/pihole/setupVars.conf"
+
 start_ftl() {
   touch /var/log/pihole-FTL.log /run/pihole-FTL.pid /run/pihole-FTL.port
   chown pihole:pihole /var/log/pihole-FTL.log /run/pihole-FTL.pid /run/pihole-FTL.port
   chmod 0644 /var/log/pihole-FTL.log /run/pihole-FTL.pid /run/pihole-FTL.port
   /usr/bin/pihole-FTL
+}
+
+set_ip_address() {
+  sed -i "/${1}/d" "${setupVars}"
+  echo "${1}=${2}" >> "${setupVars}"
 }
 
 set_root_passwd() {
@@ -44,6 +51,12 @@ if [[ -n $ADMIN_PASS ]]; then
 fi
 
 setup_dnsmasq_dns "$DNS1" "$DNS2"
+
+set_ip_address "IPV4_ADDRESS" "$ServerIP"
+
+if [ -n "$IPV6_ADDRESS" ] ; then
+  set_ip_address "IPV6_ADDRESS" "$ServerIPv6"
+fi;
 
 echo 'Ok'
 echo -n '(Re)Starting dnsmasq: '
