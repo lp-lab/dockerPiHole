@@ -2,6 +2,7 @@
 set -e
 
 #readonly setupVars="/etc/pihole/setupVars.conf"
+IP="${ServerIP:-'0.0.0.0'}"
 
 start_ftl() {
   touch /var/log/pihole-FTL.log /run/pihole-FTL.pid /run/pihole-FTL.port
@@ -52,10 +53,10 @@ fi
 
 setup_dnsmasq_dns "$DNS1" "$DNS2"
 
-set_ip_address "IPV4_ADDRESS" "$ServerIP"
+set_ip_address "IPV4_ADDRESS" "$IP"
 
 if [ -n "$IPV6_ADDRESS" ] ; then
-  set_ip_address "IPV6_ADDRESS" "$ServerIPv6"
+  set_ip_address "IPV6_ADDRESS" "$IPv6"
 fi;
 
 echo 'Ok'
