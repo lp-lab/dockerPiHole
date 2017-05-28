@@ -27,7 +27,7 @@ EOF
 /bin/bash basic-install.sh --unattended
 /bin/rm basic-install.sh
 
-apt-get install php7.0-zip
+apt-get -y install php7.0-zip
 apt-get clean
 
 echo -e '\nuser=root' >> /etc/dnsmasq.conf
