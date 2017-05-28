@@ -12,7 +12,7 @@ This container accepts a number of variables passed by Docker command line via
 `-e` switch
 
 Variable       | Default value       | Description
-    --         |        ---          |     --
+---------------|---------------------|----------------------------------------
 **ServerIP**   | **NONE - REQUIRED** | The IP address of the pi-hole container
 **ADMIN_PASS** | **NONE - REQUIRED** | The admin password for the pi-hole web interface
 DNS1           | 8.8.8.8 - Google    | Primary DNS
