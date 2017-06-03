@@ -2,3 +2,5 @@ pihole.tar
 build.sh
 run.sh
 copy.sh
+pihole-FTL
+basic-install.sh
