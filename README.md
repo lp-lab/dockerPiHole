@@ -47,6 +47,14 @@ to allow the container to use your system timezone, for query graph renders.
 to save pi-hole's logs between upgrades as container are not persistent by
 design.
 
+-   `-v /srv/pihole/etc/hosts:/etc/hosts`
+-   `-v /srv/pihole/etc/pihole/blacklist.txt:/etc/pihole/blacklist.txt`
+-   `-v /srv/pihole/etc/pihole/whitelist.txt:/etc/pihole/whitelist.txt`
+
+to save manual added blacklist and whitelist.
+
+**Always remember to mkdir/touch directory and files before the container startup or Docker will create directory for every mount.**
+
 ## Upgrades
 
 To upgrade download the new version from Docker's hub
