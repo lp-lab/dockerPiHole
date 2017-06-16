@@ -33,13 +33,7 @@ it will start the container and automatically update the blocked domain list.
 
 ## Volume mounts
 
-**Starting with version 2.0.0 of this container, released on June 16th 2017, pihole-FTL uses a sqlite DB to store queries, located on /etc/pihole directory. It's advisable to create a new Docker volume:**
-
--   `docker volume create etc-pihole`
-
-then mount it via Docker's command line like a normal directory mount:
-
--   `-v etc-pihole:/etc/pihole`
+**Starting with version 2.0.0 of this container, released on June 16th 2017, pihole-FTL uses a sqlite DB to store queries, located on /etc/pihole directory, so the container now automatically creates a volume to store this directory, there's no need to mount any file in /etc/pihole and can be safely removed from the command line**
 
 There are some useful volume mounts, passed via `-v` switch to the Docker
 command line:
