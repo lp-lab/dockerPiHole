@@ -1,7 +1,7 @@
 FROM debian:sid-slim
 
 LABEL maintainer="Luca 'meti' P <github@lplab.net>" \
-      version="1.0.3"
+      version="2.0.0"
 
 RUN apt-get update && \
     apt-get -y dist-upgrade && \
@@ -23,6 +23,8 @@ RUN chmod +x /sbin/entrypoint.sh
 
 EXPOSE 53 53/udp
 EXPOSE 80
+
+VOLUME /etc/pihole
 
 ENTRYPOINT ["/tini", "--"]
 
