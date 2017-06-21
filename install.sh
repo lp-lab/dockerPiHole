@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export USER=pihole
-export CORE_TAG=v3.0.1
+export CORE_TAG=v3.1
 
 wget https://raw.githubusercontent.com/pi-hole/pi-hole/${CORE_TAG}/automated%20install/basic-install.sh
 
@@ -22,7 +22,8 @@ DNS_BOGUS_PRIV=true
 DNSSEC=false
 EOF
 
-/bin/sed -i '1405s/.*/installPihole  | tee ${tmpLog}/g' basic-install.sh
+#/bin/sed -i '1405s/.*/installPihole  | tee ${tmpLog}/g' basic-install.sh
+/bin/sed -i 's/updatePihole | tee ${tmpLog}/installPihole  | tee ${tmpLog}/g' basic-install.sh
 /bin/sed -i 's|debconf-apt-progress -- "\${PKG_INSTALL\[@\]}" "\${installArray\[@\]}"|"\${PKG_INSTALL\[@\]}" "\${installArray\[@\]}"|g' basic-install.sh
 /bin/bash basic-install.sh --unattended
 /bin/rm basic-install.sh
