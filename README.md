@@ -33,6 +33,8 @@ it will start the container and automatically update the blocked domain list.
 
 ## Volume mounts
 
+**Starting with version 2.0.2, even /var/log is automatically binded to a docker volume, so there's no need to mount it from command line**
+
 **Starting with version 2.0.0 of this container, released on June 16th 2017, pihole-FTL uses a sqlite DB to store queries, located on /etc/pihole directory, so the container now automatically creates a volume to store this directory, there's no need to mount any file in /etc/pihole and can be safely removed from the command line**
 
 There are some useful volume mounts, passed via `-v` switch to the Docker
@@ -42,12 +44,6 @@ command line:
 -   `-v /etc/timezone:/etc/timezone:ro`
 
 to allow the container to use your system timezone, for query graph renders.
-
--   `-v /srv/pihole/var/log/pihole.log:/var/log/pihole.log`
--   `-v /srv/pihole/var/log/pihole-FTL.log:/var/log/pihole-FTL.log`
-
-to save pi-hole's logs between upgrades as container are not persistent by
-design.
 
 -   `-v /srv/pihole/etc/hosts:/etc/hosts`
 
