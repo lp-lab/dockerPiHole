@@ -56,7 +56,7 @@ setup_dnsmasq_dns "$DNS1" "$DNS2"
 
 set_ip_address "IPV4_ADDRESS" "$IP"
 
-if [ -n "$ServerIPv6" ] ; then
+if [ -n "$IPV6" ] ; then
   set_ip_address "IPV6_ADDRESS" "$IPv6"
 fi;
 
