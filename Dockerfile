@@ -1,7 +1,7 @@
 FROM debian:sid-slim
 
 LABEL maintainer="Luca 'meti' P <github@lplab.net>" \
-      version="2.0.2"
+      version="2.0.3"
 
 RUN apt-get update && \
     apt-get -y dist-upgrade && \
@@ -16,7 +16,7 @@ RUN gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 595E85A6B1B
 RUN chmod +x /tini
 
 ADD install.sh /install.sh
-RUN chmod +x /install.sh && /install.sh
+RUN chmod +x /install.sh && sleep 1 && /install.sh
 
 ADD entrypoint.sh /sbin/entrypoint.sh
 RUN chmod +x /sbin/entrypoint.sh
