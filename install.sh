@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export USER=pihole
-export CORE_TAG=v3.1
+export CORE_TAG=v3.2
 
 wget https://raw.githubusercontent.com/pi-hole/pi-hole/${CORE_TAG}/automated%20install/basic-install.sh
 
