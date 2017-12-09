@@ -48,6 +48,10 @@ setup_dnsmasq_dns() {
     ProcessDNSSettings
 }
 
+setup_localversion() {
+    . ./opt/pihole/updatecheck.sh
+}
+
 if [[ -n $ADMIN_PASS ]]; then
   set_admin_passwd
 fi
@@ -72,5 +76,6 @@ echo Gravity
 /opt/pihole/gravity.sh
 #echo tail
 #exec tail -F /var/log/pihole*.log
+setup_localversion
 echo -n 'Starting lighttpd: '
 /usr/sbin/lighttpd -D -f /etc/lighttpd/lighttpd.conf
