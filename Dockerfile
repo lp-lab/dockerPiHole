@@ -1,7 +1,7 @@
 FROM debian:sid-slim
 
 LABEL maintainer="Luca 'meti' P <github@lplab.net>" \
-      version="2.0.4"
+      version="2.1.1"
 
 RUN apt-get update && \
     apt-get -y dist-upgrade && \
