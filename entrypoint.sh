@@ -61,7 +61,7 @@ setup_dnsmasq_dns "$DNS1" "$DNS2"
 set_ip_address "IPV4_ADDRESS" "$IP"
 
 if [ -n "$IPV6" ] ; then
-  set_ip_address "IPV6_ADDRESS" "$IPv6"
+  set_ip_address "IPV6_ADDRESS" "$IPV6"
 fi;
 
 echo 'Ok'
